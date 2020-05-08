@@ -25,7 +25,7 @@ namespace ExpenseManagerAPI.Controllers
             {
                 using(var db = new ExpensesDbContext())
                 {
-                    var userExists = db.Users.Any(u => u.UserName == user.UserName && user.Password == user.Password);
+                    var userExists = db.Users.Any(u => u.UserName == user.UserName && u.Password == user.Password);
 
                     if (userExists)
                     {
