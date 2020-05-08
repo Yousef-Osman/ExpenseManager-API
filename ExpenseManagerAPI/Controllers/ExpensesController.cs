@@ -49,6 +49,8 @@ namespace ExpenseManagerAPI.Controllers
         [HttpPost]
         public IHttpActionResult PostExpenses(Expense exp)
         {
+            if(!ModelState.IsValid) return BadRequest();
+
             try
             {
                 using (ExpensesDbContext db = new ExpensesDbContext())
@@ -67,6 +69,8 @@ namespace ExpenseManagerAPI.Controllers
         [HttpDelete]
         public IHttpActionResult DeleteExpenses(int id)
         {
+            //if (!ModelState.IsValid) return BadRequest();
+
             try
             {
                 using (ExpensesDbContext db = new ExpensesDbContext())
